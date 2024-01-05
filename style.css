@@ -1,0 +1,342 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --red: #d92d36;
+    --white: #ffffff;
+    --gold: #fcc230;
+    --black: #000000;
+    --textDark: #3a414e;
+    --headerHomeText: rgba(255, 255, 255, 0.8);
+    --headerHomeBackground: rgba(0, 0, 0, 0.3);
+}
+
+::-moz-selection {
+    background: var(--gold);
+    color: var(--white);
+}
+
+::selection {
+    background: rgba(252, 194, 48, 0.6);
+    color: var(--textDark);
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rubik', 'Noto Sans SC';
+    color: var(--textDark);
+    margin: 0px;
+    padding: 0px;
+    background-color: var(--red);
+}
+
+.container {
+    width: 85%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: visible;
+}
+
+#header {
+    background-color: var(--red);
+    width: 100%;
+    margin: 0px;
+    top: 0px;
+    padding: 20px 0px 24px 0px;
+    border-top: var(--red) 4px solid;
+    position: fixed;
+    z-index: 5;
+    -webkit-transition: padding 500ms ease;
+    -ms-transition: padding 500ms ease;
+    transition: padding 500ms ease;
+}
+
+#header.home {
+    background-color: var(--headerHomeBackground);
+    outline: rgba(255, 255, 255, 0.2) 2px solid;
+    -webkit-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+
+#header.home a {
+    color: var(--headerHomeText);
+    -webkit-transition: color 500ms ease;
+    -ms-transition: color 500ms ease;
+    transition: color 500ms ease;
+}
+
+#header a {
+    color: var(--white);
+    float: left;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 20px;
+    margin-left: 5px;
+    padding: 15px 0px 15px 0px;
+    line-height: 0;
+}
+
+#header a#title {
+    font-family: 'Oswald';
+    float: left;
+    margin-left: 0px;
+    font-weight: 500;
+    font-size: 34px;
+    -webkit-transition: font-size 500ms ease;
+    -ms-transition: font-size 500ms ease;
+    transition: font-size 500ms ease;
+}
+
+#header a#menu {
+    display: none;
+    float: right;
+    font-size: 20px;
+    height: 30px;
+    width: 30px;
+    margin: 0px;
+    padding: 0px;
+    padding: 5px 0px 5px 0px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+#header a#menu:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    -webkit-transition: background-color 500ms ease;
+    -ms-transition: background-color 500ms ease;
+    transition: background-color 500ms ease;
+}
+
+#header #header-right {
+    float: right;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+#header #header-right a {
+    padding: 15px;
+}
+
+#header #header-right a:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    -webkit-transition: background-color 500ms ease;
+    -ms-transition: background-color 500ms ease;
+    transition: background-color 500ms ease;
+}
+
+#header.home #header-right a#active {
+    background-color: var(--red);
+    color: var(--white);
+    -webkit-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+
+#header #header-right a#active {
+    background-color: var(--white);
+    color: var(--red);
+}
+
+#background-image {
+    background-image: url('images/IMG_5885.jpg');
+    background-position: top center;
+    background-attachment: scroll;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    min-height: 600px;
+    max-height: 1200px;
+}
+
+#background-gradient {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+    height: inherit;
+    width: inherit;
+    min-height: inherit;
+    max-height: inherit;
+    display: flex;
+    align-items: flex-end;
+}
+
+#background-text-container {
+    color: var(--white);
+    width: 100%;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+#background-text-container #background-title {
+    font-family: 'Oswald';
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+
+#background-text-container #background-subtitle {
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.2;
+    padding-top: 15px;
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 40px;
+    border-top: var(--gold) 4px dotted;
+}
+
+#background-text-container a#arrow {
+    color: var(--white);
+    font-size: 24px;
+    width: 30px;
+    height: 30px;
+}
+
+#content {
+    background-color: var(--white);
+    padding-bottom: 80px;
+}
+
+#content #header-padding {
+    height: 80px;
+}
+
+#content h1 {
+    font-size: 40px;
+    font-weight: 600;
+    margin: 0px 0px 30px 0px;
+    padding-top: 80px;
+}
+
+#content p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0px 0px 24px 0px;
+}
+
+#footer {
+    background-color: var(--red);
+    color: var(--white);
+    padding: 40px 0px 20px 0px;
+}
+
+#footer .one-third {
+    float: left;
+    display: block;
+    width: 33.33%;
+    padding-right: 4%;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+#footer .one-third h1 {
+    font-family: 'Oswald';
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0px 0px 20px 0px;
+}
+
+#footer .one-third p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 10px 0px 10px 0px;
+}
+
+#footer .one-third ul {
+    padding: 0px;
+}
+
+#footer .one-third a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+#footer .one-third a:hover {
+    font-weight: bold;
+}
+
+#footer .one-third a p:hover {
+    text-decoration: underline;
+}
+
+#footer .one-third a p {
+    display: inline-block;
+    float: none;
+    width: fit-content;
+}
+
+#footer .one-third .fa-brands {
+    background-color: var(--white);
+    color: var(--red);
+    padding: 6px 0px 6px 0px;
+    font-size: 20px;
+    width: 32px;
+    height: 20px;
+    text-align: center;
+    border-radius: 50%;
+    margin-right: 10px;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+#footer #copyright {
+    float: none;
+    overflow: hidden;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+    padding-top: 20px;
+    border-top: var(--gold) 3px dotted;
+}
+
+#map {
+
+    width: 100%;
+    height: 60vh;
+    min-height: 300px;
+    max-height: 1000px;
+}
+
+/* Tablets */
+@media only screen and (max-width: 800px) {
+    #header a {
+        float: none;
+        display: block;
+        text-align: left;
+        width: fit-content;
+    }
+
+    #header a#menu {
+        display: block;
+    }
+
+    #header #header-right.responsive {
+        display: block;
+    }
+
+    #header #header-right {
+        display: none;
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    #header #header-right a {
+        margin-bottom: 5px;
+    }
+}
+
+/* Mobile phones */
+@media only screen and (max-width: 600px) {
+    #footer .one-third {
+        float: none;
+        width: 100%;
+    }
+}
