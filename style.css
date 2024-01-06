@@ -230,8 +230,8 @@ body {
 
 #content .container {
     background-color: var(--white);
-    padding-left: min(80px, 5%);
-    padding-right: min(80px, 5%);
+    padding-left: min(80px, 4%);
+    padding-right: min(80px, 4%);
 }
 
 #content .header-footer-padding {
@@ -265,11 +265,15 @@ body {
 }
 
 #content #contact {
+    display: inline-block;
     margin: 24px 0px 14px 0px;
 }
 
 #content #contact p {
     margin-top: 8px;
+    text-align: start;
+    padding-left: 40px;
+    text-indent: -48px;
 }
 
 #content #contact p a {
@@ -297,6 +301,10 @@ body {
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
+}
+
+#content #contact .fa-solid::before {
+    padding-left: 48px;
 }
 
 #footer {
