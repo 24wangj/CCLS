@@ -36,9 +36,6 @@ body {
     margin: 0px;
     padding: 0px;
     background-color: var(--red);
-    background-image: url('./images/circles.jpg');
-    background-repeat: repeat;
-    background-attachment: fixed;
 }
 
 .container {
@@ -155,15 +152,24 @@ body {
     color: var(--red);
 }
 
-#lantern {
+#lantern-1 {
     width: 150px;
     position: fixed;
     left: 50vw;
     margin-left: clamp(0px, 35vw, 700px);
+    z-index: 1;
+}
+
+#lantern-2 {
+    width: 120px;
+    position: fixed;
+    left: 50vw;
+    margin-left: clamp(0px, 40vw, 800px);
+    z-index: 0;
 }
 
 #background-image {
-    background-image: url('./images/IMG_5885.jpg');
+    background-image: url('./images/IMG_5885.JPG');
     background-position: top center;
     background-attachment: scroll;
     background-size: cover;
@@ -217,7 +223,9 @@ body {
 }
 
 #content {
-    /* background-color: var(--white); */
+    background-image: url('./images/circles.jpg');
+    background-repeat: repeat;
+    background-attachment: fixed;
 }
 
 #content .container {
@@ -411,19 +419,20 @@ body {
     #header #header-right a {
         margin-bottom: 5px;
     }
+
+    #lantern-2 {
+        display: none;
+    }
 }
 
 /* Mobile phones */
 @media only screen and (max-width: 600px) {
-    body {
-        background-image: none;
-    }
-
-    #lantern {
+    #lantern-1 {
         display: none;
     }
 
     #content {
+        background-image: none;
         background-color: var(--white);
     }
 
