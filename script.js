@@ -10,52 +10,38 @@ function scrollImage() {
   }
 
 function adjustHomeHeader() {
-    var scrollTop = document.scrollingElement.scrollTop;
+    var scroll = document.scrollingElement.scrollTop;
     var header = header = document.getElementById("header");
+    var title =  document.getElementById("title");
     var activeText =  document.getElementById("active");
-    if (scrollTop > scrollThreshold) {
-        header.style.backgroundColor = "var(--red)";
-        header.style.padding = "4px 0px 8px 0px";
-        header.style.outline = "none";
-
-        document.getElementById("title").style.fontSize = "24px";
-
-        activeText.style.backgroundColor = "var(--white)";
-        activeText.style.color = "var(--red)";
-
-        inactiveText = document.getElementsByClassName("inactive");
+    var inactiveText = document.getElementsByClassName("inactive");
+    if (scroll > scrollThreshold) {
+        header.className = "home active";
+        title.className = "inactive active";
+        activeText.className = "active";
         for (let i = 0; i < inactiveText.length; i++) {
-            inactiveText[i].style.color = "var(--white)";
+            inactiveText[i].className = "inactive active"
         }
     } else {
-        header.style.backgroundColor = "var(--headerHomeBackground)";
-        header.style.padding = "20px 0px 24px 0px";
-        header.style.outline = "rgba(255, 255, 255, 0.2) 2px solid";
-
-        document.getElementById("title").style.fontSize = "34px";
-
-        activeText.style.backgroundColor = "var(--red)";
-        activeText.style.color = "var(--white)";
-
-        inactiveText = document.getElementsByClassName("inactive");
+        header.className = "home";
+        title.className = "inactive";
+        activeText.className = "";
         for (let i = 0; i < inactiveText.length; i++) {
-            inactiveText[i].style.color = "var(--headerHomeText)";
+            inactiveText[i].className = "inactive"
         }
     }
 }
 
 function adjustHeader() {
-    var scrollTop = document.scrollingElement.scrollTop;
-    if (scrollTop > scrollThreshold) {
-        header = document.getElementById("header");
-        header.style.padding = "4px 0px 8px 0px";
-
-        document.getElementById("title").style.fontSize = "24px";
+    var scroll = document.scrollingElement.scrollTop;
+    var header = document.getElementById("header");
+    var title =  document.getElementById("title");
+    if (scroll > scrollThreshold) {
+        header.className = "active"
+        title.className = "inactive active"
     } else {
-        header = document.getElementById("header");
-        header.style.padding = "20px 0px 24px 0px";
-
-        document.getElementById("title").style.fontSize = "34px";
+        header.className = "";
+        title.className = "inactive";
     }
 }
 
@@ -63,17 +49,13 @@ function showHideHeader() {
     var headerRight = document.getElementById("header-right");
     var menu = document.getElementById("menu");
     if (headerRight.className == "") {
-        headerRight.className = "responsive";
-
+        headerRight.className = "active";
+        menu.className = "active";
         document.getElementById("menu-icon").className = "fa-solid fa-xmark";
-        menu.style.fontSize = "24px";
-        menu.style.padding = "3px 0px 3px 0px";
     } else {
         headerRight.className = "";
-
+        menu.className = "";
         document.getElementById("menu-icon").className = "fa-solid fa-bars-staggered";
-        menu.style.fontSize = "20px";
-        menu.style.padding = "5px 0px 5px 0px";
     }
 }
 
@@ -84,4 +66,70 @@ function jumpToContent() {
         top: scroll - header_offset,
         behavior: 'smooth'
     });
+}
+
+function collapseList(id) {
+    var list = document.getElementById(id + "-list");
+    var icon = document.getElementById(id + "-icon");
+    if (list.className == "") {
+        list.className = "active";
+        icon.className = "fa-solid fa-chevron-down";
+    } else {
+        list.className = "";
+        icon.className = "fa-solid fa-chevron-right";
+    }
+}
+
+const numMap = new Map();
+numMap.set(1, "一");
+numMap.set(2, "二");
+numMap.set(3, "三");
+numMap.set(4, "四");
+numMap.set(5, "五");
+numMap.set(6, "六");
+numMap.set(7, "七");
+numMap.set(8, "八");
+numMap.set(9, "九");
+numMap.set(10, "十");
+numMap.set(11, "十一");
+numMap.set(12, "十二");
+
+function loadStudentList() {
+    const length = 12;
+    var parent = document.getElementById("student-list");
+    var html = "";
+    for (let i = 1; i < length + 1; i++) {
+        html += "<li><span class='title'><b>Volume " + i + " 第"+ numMap.get(i) + "册</b></span><a href='http://web.hwjyw.com/fj/jcxz/zhongwen/" + i + "/all.pdf' target='_blank'><span class='download'>Download 下载</span></a></li>"
+    }
+    parent.innerHTML = html;
+}
+
+function loadTeachingList() {
+    const length = 12;
+    var parent = document.getElementById("teaching-list");
+    var html = "";
+    for (let i = 1; i < length + 1; i++) {
+        html += "<li><span class='title'><b>Volume " + i + " 第"+ numMap.get(i) + "册</b></span><a href='http://web.hwjyw.com/fj/jcxz/zwjxck/" + i + "/all.pdf' target='_blank'><span class='download'>Download 下载</span></a></li>"
+    }
+    parent.innerHTML = html;
+}
+
+function loadWorkbookAList() {
+    const length = 12;
+    var parent = document.getElementById("workbook-a-list");
+    var html = "";
+    for (let i = 1; i < length + 1; i++) {
+        html += "<li><span class='title'><b>Volume " + i + " 第"+ numMap.get(i) + "册</b></span><a href='http://web.hwjyw.com/fj/jcxz/zwlxca/" + i + "/all.pdf' target='_blank'><span class='download'>Download 下载</span></a></li>"
+    }
+    parent.innerHTML = html;
+}
+
+function loadWorkbookBList() {
+    const length = 12;
+    var parent = document.getElementById("workbook-b-list");
+    var html = "";
+    for (let i = 1; i < length + 1; i++) {
+        html += "<li><span class='title'><b>Volume " + i + " 第"+ numMap.get(i) + "册</b></span><a href='http://web.hwjyw.com/fj/jcxz/zwlxcb/" + i + "/all.pdf' target='_blank'><span class='download'>Download 下载</span></a></li>"
+    }
+    parent.innerHTML = html;
 }

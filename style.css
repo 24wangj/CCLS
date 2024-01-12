@@ -5,22 +5,26 @@
 
 :root {
     --red: #d92d36;
+    --darkRed: #ae252b;
     --white: #ffffff;
-    --gold: #fcc230;
-    --lightGray: #e7e7e7;
+    --gold: #f7ac04;
+    --lightGray: #dfdfdf;
     --black: #000000;
     --textDark: #3a414e;
+    --headerTextHover: rgba(0, 0, 0, 0.2);
     --headerHomeText: rgba(255, 255, 255, 0.8);
     --headerHomeBackground: rgba(0, 0, 0, 0.3);
+    --headerOutline: rgba(255, 255, 255, 0.2);
+    --selectionText: rgba(247, 172, 4, 0.6)
 }
 
 ::-moz-selection {
-    background: var(--gold);
+    background-color: var(--selectionText);
     color: var(--white);
 }
 
 ::selection {
-    background: rgba(252, 194, 48, 0.6);
+    background-color: var(--selectionText);
     color: var(--textDark);
 }
 
@@ -60,9 +64,19 @@ body {
     transition: padding 500ms ease;
 }
 
+#header.active {
+    padding: 4px 0px 8px 0px;
+}
+
+#header.home.active {
+    background-color: var(--red);
+    padding: 4px 0px 8px 0px;
+    outline: none;
+}
+
 #header.home {
     background-color: var(--headerHomeBackground);
-    outline: rgba(255, 255, 255, 0.2) 2px solid;
+    outline: var(--headerOutline) 2px solid;
     -webkit-transition: all 500ms ease;
     -ms-transition: all 500ms ease;
     transition: all 500ms ease;
@@ -101,6 +115,10 @@ body {
     transition: font-size 500ms ease;
 }
 
+#header a#title.active {
+    font-size: 24px;
+}
+
 #header a#menu {
     display: none;
     float: right;
@@ -115,7 +133,7 @@ body {
 }
 
 #header a#menu:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: var(--headerTextHover);
     -webkit-transition: background-color 500ms ease;
     -ms-transition: background-color 500ms ease;
     transition: background-color 500ms ease;
@@ -133,10 +151,14 @@ body {
 }
 
 #header #header-right a:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: var(--headerTextHover);
     -webkit-transition: background-color 500ms ease;
     -ms-transition: background-color 500ms ease;
     transition: background-color 500ms ease;
+}
+
+#header.home a.inactive.active {
+    color: var(--white);
 }
 
 #header.home #header-right a#active {
@@ -147,13 +169,18 @@ body {
     transition: background-color, color 500ms ease;
 }
 
+#header.home #header-right a#active.active {
+    background-color: var(--white);
+    color: var(--red);
+}
+
 #header #header-right a#active {
     background-color: var(--white);
     color: var(--red);
 }
 
 #lantern-1 {
-    width: 150px;
+    width: 130px;
     position: fixed;
     left: 50vw;
     margin-left: clamp(0px, 35vw, 700px);
@@ -161,7 +188,7 @@ body {
 }
 
 #lantern-2 {
-    width: 120px;
+    width: 100px;
     position: fixed;
     left: 50vw;
     margin-left: clamp(0px, 40vw, 800px);
@@ -220,12 +247,18 @@ body {
     font-size: 24px;
     width: 30px;
     height: 30px;
+    border-radius: 5px;
+}
+
+#background-text-container a#arrow:focus {
+    outline: var(--gold) 2px solid;
 }
 
 #content {
     background-image: url('./images/circles.jpg');
     background-repeat: repeat;
     background-attachment: fixed;
+    overflow: hidden;
 }
 
 #content .container {
@@ -258,10 +291,9 @@ body {
     margin: 24px 0px 0px 0px;
 }
 
-#content p.translated {
-    background-color: var(--lightGray);
-    padding: 10px;
-    border-radius: 10px;
+#content .translated {
+    border: 30px solid transparent;
+    border-image: url('./images/border-red.png') 25% repeat;
 }
 
 #content #contact {
@@ -276,16 +308,16 @@ body {
     text-indent: -48px;
 }
 
-#content #contact p a {
+#content p a {
     border-radius: 5px;
     color: var(--red);
 }
 
-#content #contact p a:hover {
+#content p a:hover {
     color: var(--black);
 }
 
-#content #contact p a:focus {
+#content p a:focus {
     outline: var(--gold) 2px solid;
 }
 
@@ -305,6 +337,91 @@ body {
 
 #content #contact .fa-solid::before {
     padding-left: 48px;
+}
+
+#content a {
+    text-decoration: none;
+}
+
+#content .menu-list {
+    padding: 0px;
+    list-style: none;
+    margin-top: 20px;
+}
+
+#content .menu-list li {
+    background-color: var(--red);
+    color: var(--white);
+    font-family: 'Oswald';
+    font-size: 16px;
+    padding: 15px;
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 5px;
+}
+
+#content .menu-list ul {
+    margin: 15px 0px 15px 0px;
+}
+
+#content .menu-list ul li {
+    background: none;
+    color: var(--textDark);
+    font-family: 'Rubik';
+    font-size: 14px;
+    padding: 0px;
+    border-radius: 0;
+    /* display: inline-block; */
+}
+
+#content .menu-list ul li .title {
+    float: left;
+    padding: 10px;
+}
+
+#content .menu-list ul li .download {
+    float: right;
+    background-color: var(--red);
+    color: var(--white);
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+#content .menu-list ul li .download:hover {
+    background-color: var(--darkRed);
+    -webkit-transition: background-color 500ms ease;
+    -ms-transition: background-color 500ms ease;
+    transition: background-color 500ms ease;
+} 
+
+#content .menu-list ul {
+    padding: 0;
+    display: none;
+}
+
+#content .menu-list ul.active {
+    display: block;
+}
+
+#content .menu-list.bullet-list ul {
+    margin: 20px;
+    list-style: circle;
+}
+
+#content .menu-list.bullet-list ul li {
+    display: list-item;
+    padding: 5px;
+    margin: 0px 0px 0px 10px;
+    line-height: 1.5;
+    list-style: disc;
+}
+
+#content .menu-list.bullet-list ul .translated {
+    margin-top: 20px;
 }
 
 #footer {
@@ -414,7 +531,12 @@ body {
         display: block;
     }
 
-    #header #header-right.responsive {
+    #header a#menu .active {
+        font-size: 24px;
+        padding: 3px 0px 3px 0px;
+    }
+
+    #header #header-right.active {
         display: block;
     }
 
