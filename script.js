@@ -1,19 +1,19 @@
 
 const scrollThreshold = 100
 
-function scrollImage() {  
+function scrollImage() {
     var scrollTop = document.scrollingElement.scrollTop;
     var target = document.getElementById("background-image");
     var factor = 0.5;
     var yvalue = scrollTop * factor;
     target.style.backgroundPosition = "center " + yvalue + "px";
-  }
+}
 
 function adjustHomeHeader() {
     var scroll = document.scrollingElement.scrollTop;
     var header = header = document.getElementById("header");
-    var title =  document.getElementById("title");
-    var activeText =  document.getElementById("active");
+    var title = document.getElementById("title");
+    var activeText = document.getElementById("active");
     var inactiveText = document.getElementsByClassName("inactive");
     if (scroll > scrollThreshold) {
         header.className = "home active";
@@ -35,7 +35,7 @@ function adjustHomeHeader() {
 function adjustHeader() {
     var scroll = document.scrollingElement.scrollTop;
     var header = document.getElementById("header");
-    var title =  document.getElementById("title");
+    var title = document.getElementById("title");
     if (scroll > scrollThreshold) {
         header.className = "active"
         title.className = "inactive active"
@@ -66,6 +66,28 @@ function jumpToContent() {
         top: scroll - header_offset,
         behavior: 'smooth'
     });
+}
+
+const imgList = ["./images/IMG_5885.JPG", "./images/img_4210.webp", "./images/IMG_5856.JPG"];
+
+function preloadImages() {
+    var img = new Image();
+    for (let i = 0; i < imgList.length; i++) {
+        img.src = imgList[i];
+    }
+}
+
+let index = 0;
+function cycleImages() {
+    var parent = document.getElementById("background-image");
+    parent.style.backgroundImage = "url('" + imgList[index] + "')";
+    if (index >= imgList.length - 1) {
+        index = 0;
+    } else {
+        index++;
+    }
+
+    setTimeout(cycleImages, 4000);
 }
 
 function collapseList(id) {
@@ -99,7 +121,7 @@ function loadStudentList() {
     var parent = document.getElementById("student-list");
     var html = "";
     for (let i = 1; i < length + 1; i++) {
-        html += "<li><span class='title'><b>Volume " + i + " 第"+ numMap.get(i) + "册</b></span><a href='http://web.hwjyw.com/fj/jcxz/zhongwen/" + i + "/all.pdf' target='_blank'><span class='download'>Download 下载</span></a></li>"
+        html += "<li><span class='title'><b>Volume " + i + " 第" + numMap.get(i) + "册</b></span><a href='http://web.hwjyw.com/fj/jcxz/zhongwen/" + i + "/all.pdf' target='_blank'><span class='download'>Download 下载</span></a></li>"
     }
     parent.innerHTML = html;
 }
@@ -109,7 +131,7 @@ function loadTeachingList() {
     var parent = document.getElementById("teaching-list");
     var html = "";
     for (let i = 1; i < length + 1; i++) {
-        html += "<li><span class='title'><b>Volume " + i + " 第"+ numMap.get(i) + "册</b></span><a href='http://web.hwjyw.com/fj/jcxz/zwjxck/" + i + "/all.pdf' target='_blank'><span class='download'>Download 下载</span></a></li>"
+        html += "<li><span class='title'><b>Volume " + i + " 第" + numMap.get(i) + "册</b></span><a href='http://web.hwjyw.com/fj/jcxz/zwjxck/" + i + "/all.pdf' target='_blank'><span class='download'>Download 下载</span></a></li>"
     }
     parent.innerHTML = html;
 }
@@ -119,7 +141,7 @@ function loadWorkbookAList() {
     var parent = document.getElementById("workbook-a-list");
     var html = "";
     for (let i = 1; i < length + 1; i++) {
-        html += "<li><span class='title'><b>Volume " + i + " 第"+ numMap.get(i) + "册</b></span><a href='http://web.hwjyw.com/fj/jcxz/zwlxca/" + i + "/all.pdf' target='_blank'><span class='download'>Download 下载</span></a></li>"
+        html += "<li><span class='title'><b>Volume " + i + " 第" + numMap.get(i) + "册</b></span><a href='http://web.hwjyw.com/fj/jcxz/zwlxca/" + i + "/all.pdf' target='_blank'><span class='download'>Download 下载</span></a></li>"
     }
     parent.innerHTML = html;
 }
@@ -129,7 +151,7 @@ function loadWorkbookBList() {
     var parent = document.getElementById("workbook-b-list");
     var html = "";
     for (let i = 1; i < length + 1; i++) {
-        html += "<li><span class='title'><b>Volume " + i + " 第"+ numMap.get(i) + "册</b></span><a href='http://web.hwjyw.com/fj/jcxz/zwlxcb/" + i + "/all.pdf' target='_blank'><span class='download'>Download 下载</span></a></li>"
+        html += "<li><span class='title'><b>Volume " + i + " 第" + numMap.get(i) + "册</b></span><a href='http://web.hwjyw.com/fj/jcxz/zwlxcb/" + i + "/all.pdf' target='_blank'><span class='download'>Download 下载</span></a></li>"
     }
     parent.innerHTML = html;
 }

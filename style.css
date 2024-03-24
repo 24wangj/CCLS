@@ -15,7 +15,7 @@
     --headerHomeBackground: rgba(0, 0, 0, 0.3);
     --headerOutline: rgba(255, 255, 255, 0.2);
     --selectionText: rgba(247, 172, 4, 0.6);
-    --boxShadow: rgba(0, 0, 0, 0.4);
+    --boxShadow: rgba(0, 0, 0, 0.3);
 }
 
 ::-moz-selection {
@@ -58,6 +58,7 @@ body {
     padding: 20px 0px 24px 0px;
     border-top: var(--red) 4px solid;
     position: fixed;
+    box-shadow: 0 0 20px var(--boxShadow);
     z-index: 5;
     -webkit-transition: padding 500ms ease;
     -ms-transition: padding 500ms ease;
@@ -200,10 +201,13 @@ body {
     background-position: top center;
     background-attachment: scroll;
     background-size: cover;
-    height: 100vh;
+    height: 90vh;
     width: 100%;
     min-height: 600px;
     max-height: 1200px;
+    -webkit-transition: background-image, all 500ms ease;
+    -ms-transition: background-image, all 500ms ease;
+    transition: background-image, all 500ms ease, width 1ms;
 }
 
 #background-gradient {
@@ -531,6 +535,25 @@ body {
     width: 30px;
     height: 30px;
     text-align: center;
+}
+
+#signup {
+    background-color: var(--red);
+    color: var(--white);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Oswald';
+    font-size: 20px;
+    font-weight: 400;
+}
+
+#signup:hover {
+    background-color: var(--darkRed);
+    -webkit-transition: background-color 500ms ease;
+    -ms-transition: background-color 500ms ease;
+    transition: background-color 500ms ease;
 }
 
 #calendar {
