@@ -74,7 +74,7 @@ function jumpToContent() {
     });
 }
 
-const imgList = ["./images/IMG_5885.JPG", "./images/img_4210.webp", "./images/IMG_5856.JPG"];
+const imgList = ["./images/IMG_5885.JPG", "./images/_DSC2327 - Yang Zhang.jpg", "./images/_DSC2792 - Yang Zhang.jpg", "./images/2016_EXPO_2.jpg","./images/20210829_154626.jpg", "./images/20210912_144023.jpg","./images/20210912_144828.jpg", "./images/20210912_145107.jpg","./images/20210912_151024(0).jpg","./images/20210912_151603.jpg", "./images/20210912_153704.jpg","./images/20210919_134426.jpg","./images/20210919_150308.jpg","./images/A7400630.JPG", "./images/A7400651.JPG", "./images/A7403442.JPG", "./images/A7403456.JPG"];
 
 function preloadImages() {
     var img = new Image();
@@ -93,7 +93,7 @@ function cycleImages() {
         index++;
     }
 
-    setTimeout(cycleImages, 4000);
+    setTimeout(cycleImages, 2000);
 }
 
 function collapseList(id) {
