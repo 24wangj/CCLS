@@ -96,7 +96,6 @@ body {
     text-align: center;
     text-decoration: none;
     margin-left: 5px;
-    padding: 15px 0px 15px 0px;
     line-height: 0;
 }
 
@@ -118,6 +117,23 @@ body {
 
 #header a#title.active {
     font-size: 24px;
+}
+
+#header a #title-logo {
+    border-radius: 50%;
+    height: 50px;
+    margin-right: 20px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+#header a #title-logo.active {
+    height: 30px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    -webkit-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    transition: all 500ms ease;
 }
 
 #header a#menu {
@@ -297,7 +313,7 @@ body {
 
 #content .translated {
     border: 30px solid transparent;
-    border-image: url('./images/border-red.png') 25% repeat;
+    border-image: url('./images/border-gold.png') 25% repeat;
 }
 
 #content #contact {
@@ -341,6 +357,12 @@ body {
 
 #content #contact .fa-solid::before {
     padding-left: 48px;
+}
+
+#logo {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 #content a {
@@ -540,13 +562,16 @@ body {
 #signup {
     background-color: var(--red);
     color: var(--white);
-    padding: 20px;
+    padding: 15px;
     border-radius: 15px;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 40px;
     font-family: 'Oswald';
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 400;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #signup:hover {

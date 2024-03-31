@@ -13,11 +13,13 @@ function adjustHomeHeader() {
     var scroll = document.scrollingElement.scrollTop;
     var header = header = document.getElementById("header");
     var title = document.getElementById("title");
+    var titleLogo = document.getElementById("title-logo");
     var activeText = document.getElementById("active");
     var inactiveText = document.getElementsByClassName("inactive");
     if (scroll > scrollThreshold) {
         header.className = "home active";
         title.className = "inactive active";
+        titleLogo.className = "active"
         activeText.className = "active";
         for (let i = 0; i < inactiveText.length; i++) {
             inactiveText[i].className = "inactive active"
@@ -25,6 +27,7 @@ function adjustHomeHeader() {
     } else {
         header.className = "home";
         title.className = "inactive";
+        titleLogo.className = ""
         activeText.className = "";
         for (let i = 0; i < inactiveText.length; i++) {
             inactiveText[i].className = "inactive"
@@ -36,12 +39,15 @@ function adjustHeader() {
     var scroll = document.scrollingElement.scrollTop;
     var header = document.getElementById("header");
     var title = document.getElementById("title");
+    var titleLogo = document.getElementById("title-logo");
     if (scroll > scrollThreshold) {
         header.className = "active"
         title.className = "inactive active"
+        titleLogo.className = "active"
     } else {
         header.className = "";
         title.className = "inactive";
+        titleLogo.className = ""
     }
 }
 
