@@ -306,10 +306,39 @@ body {
     padding-top: 40px;
 }
 
+#content h3 {
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+#content h4 {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+#content .left {
+    width: 50%;
+    display: inline-block;
+}
+
+#content .right {
+    width: 50%;
+    float: right;
+}
+
 #content p {
     font-size: 14px;
     line-height: 1.5;
     margin: 24px 0px 0px 0px;
+}
+
+#content p.subheading {
+    margin-top: 0;
+}
+
+#content p.subsubheading {
+    margin-top: 0;
+    margin-bottom: 10px;
 }
 
 #content .translated {
@@ -647,6 +676,16 @@ body {
     #content {
         background-image: none;
         background-color: var(--white);
+    }
+
+    #content .left {
+        width: auto;
+        display: block;
+    }
+
+    #content .right {
+        width: auto;
+        float: none;
     }
 
     #footer .one-third {
