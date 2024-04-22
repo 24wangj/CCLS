@@ -317,13 +317,14 @@ body {
 }
 
 #content .left {
-    width: 50%;
+    width: 49%;
     display: inline-block;
+    vertical-align: top;
 }
 
 #content .right {
-    width: 50%;
-    float: right;
+    width: 49%;
+    display: inline-block;
 }
 
 #content p {
@@ -685,7 +686,7 @@ body {
 
     #content .right {
         width: auto;
-        float: none;
+        display: block;
     }
 
     #footer .one-third {
